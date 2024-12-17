@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 120 40% 15%; /* Forest green background */
+    --foreground: 45 80% 50%; /* Gold text */
+    
+    --card: 45 80% 50%; /* Gold card */
+    --card-foreground: 120 40% 15%; /* Forest green text on gold */
+    
+    --popover: 45 80% 50%;
+    --popover-foreground: 120 40% 15%;
+    
+    --primary: 45 80% 50%;
+    --primary-foreground: 120 40% 15%;
+    
+    --secondary: 120 35% 20%;
+    --secondary-foreground: 45 80% 50%;
+    
+    --muted: 120 30% 25%;
+    --muted-foreground: 45 70% 45%;
+    
+    --accent: 45 80% 50%;
+    --accent-foreground: 120 40% 15%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 45 70% 45%;
+    --input: 45 70% 45%;
+    --ring: 45 70% 45%;
+    
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+.memory-point {
+  @apply w-4 h-4 rounded-full cursor-pointer transition-all duration-300;
+  background-color: #E6B800; /* Gold color for memory points */
+}
+
+.memory-point:hover {
+  @apply scale-125 shadow-lg;
+}
+
+.memory-line {
+  @apply absolute h-0.5 bg-accent/50 origin-left transition-all duration-500;
+}
+
+.memory-card {
+  @apply fixed inset-0 bg-background/90 backdrop-blur-sm flex items-center justify-center z-50;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
